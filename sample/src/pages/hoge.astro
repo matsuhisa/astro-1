@@ -1,7 +1,78 @@
 ---
 ---
 <style lang="scss">
+body {
+	background-color: #ffffff;
+	box-sizing: border-box;
+}
 
+.bottom-sheet {
+	.bottom-sheet__overlay {
+		background-color: #000000;
+		opacity: 0.5;
+		visibility: visible;
+		position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+		z-index: 1000;
+	}
+
+	.bottom-sheet__fixed-wrapper {
+		position: fixed;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 1001;
+
+		display: grid;
+    grid-template-rows: minmax(32px, 1fr) auto;
+    grid-template-areas:
+        "top-spacer"
+        "sheet";
+	}
+
+	.bottom-sheet__top-spacer {
+		grid-area: top-spacer;
+	}
+
+	.bottom-sheet__sheet {
+    overflow: hidden;
+
+    grid-area: sheet;
+    display: grid;
+    grid-template-rows: auto auto minmax(0,1fr);
+    grid-template-areas:
+        "handle"
+        "header"
+        "content";
+    min-height: 240px;
+    padding-bottom: env(safe-area-inset-bottom,0);
+    border-radius: 16px 16px 0 0;
+    background-color: #ffffff;
+	}
+
+	.bottom-sheet__content {
+    grid-area: content;
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-areas:
+        "body";
+    background-color: #ffffff;
+
+		border: 1px solid red;
+	}
+
+	.bottom-sheet__body {
+		grid-area: body;
+		padding: 16px;
+		font-size: 16px;
+		line-height: 2;
+		overflow: auto;
+	}
+}
 </style>
 
 <html lang="en">
@@ -19,15 +90,48 @@
 		<div class="bottom-sheet">
 			<div class="bottom-sheet__overlay"></div>
 			<div class="bottom-sheet__fixed-wrapper">
-				<div class="bottom-sheet__top-space"></div>
-				<div class="bottom-sheet__content">
-					<div class="bottom-sheet__header">
-
-					</div>
-					<div class="bottom-sheet__body">
-あいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえお<br>
-あいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえお<br>
-あいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえお
+				<div class="bottom-sheet__top-spacer"></div>
+				<div class="bottom-sheet__sheet">
+					<header class="bottom-sheet__header"></header>
+					<div class="bottom-sheet__handle"></div>
+					<div class="bottom-sheet__content">
+						<div class="bottom-sheet__body">
+							あいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえお<br>
+							あいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえお<br>
+							あいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえお
+							あいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえお<br>
+							あいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえお<br>
+							<h2 class="">タイトル2</h2>
+							あいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえお<br>
+							あいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえお<br>
+							あいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえお
+							あいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえお<br>
+							あいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえお<br>
+							<h2 class="">タイトル3</h2>
+							あいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえお<br>
+							あいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえお<br>
+							あいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえお
+							あいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえお<br>
+							あいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえお<br>
+							<h2 class="">タイトル4</h2>
+							あいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえお<br>
+							あいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえお<br>
+							あいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえお
+							あいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえお<br>
+							あいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえお<br>
+							<h2 class="">タイトル5</h2>
+							あいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえお<br>
+							あいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえお<br>
+							あいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえお
+							あいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえお<br>
+							あいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえお<br>
+							<h2 class="">タイトル6</h2>
+							あいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえお<br>
+							あいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえお<br>
+							あいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえお
+							あいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえお<br>
+							あいうえおあいうえおあいうえおあいうえおあいうえおあいうえおあいうえお<br>
+						</div>
 					</div>
 				</div>
 			</div>
